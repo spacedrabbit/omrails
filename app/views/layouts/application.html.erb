@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Omrails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>One Month Rails</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+	<div class="container"> <!-- this container class is imported from Bootstrap. see application.js in ../assest/javascripts
+									also see Gemfile for call to gem ($bundle install after adding the gem), and styles.css.scss. -->
 
-</body>
+	<%= render 'layouts/header' %>  <!-- render pulls information found in the layouts/ folder with the word header -->
+
+	<%= yield %> <!-- what yeild does is it pulls the pages it finds in ../pages. In this case
+							its pulling in the info from either about, or home.html.erb depending on
+							what route was taken -->
+
+	<%= render 'layouts/footer' %>
+	</div>
+	<!-- COMMENT OUT 
+
+   -->
+	</body>
 </html>
